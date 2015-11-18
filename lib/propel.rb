@@ -1,5 +1,5 @@
 require "propel/version"
+require "propel/test"
 
 module Propel
-  # Your code goes here...
 end

@@ -1,0 +1,2 @@
+   class APNS < Push
+   end
