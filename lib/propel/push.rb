@@ -2,10 +2,10 @@ class Push
 
    @@types = { 'google' => 'GCM', 'apple' => 'APNS' }
 
-   def self.NotificationStream(type)
+   def self.NotificationStream(type, *args)
       return false unless @@types.has_key?(type)
       cls = Object.const_get(@@types[type])
-      pushMananger = cls.new
+      pushMananger = cls.new(*args)
       return pushMananger
    end
 
