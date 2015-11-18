@@ -3,7 +3,7 @@ class APNS < Push
    attr_accessor :certPath
 
    def initialize(certPath = false)
-      unless certPath
+      if certPath
          @certPath = certPath
       end
       puts 'made it from APNS' + "\n\n#{certPath}"
