@@ -1,3 +1,3 @@
 require_relative "push.rb"
-
-a = Push.new
+require_relative "gcm.rb"
+require_relative "apns.rb"
