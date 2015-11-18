@@ -1,5 +1,7 @@
 require "propel/version"
-require "propel/test"
+require "propel/push"
+require "propel/gcm"
+require "propel/apns"
 
 module Propel
 end
