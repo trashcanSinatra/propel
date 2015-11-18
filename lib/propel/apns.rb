@@ -1,7 +1,12 @@
 class APNS < Push
 
-   def initialize
-      puts 'made it from APNS'
+   attr_accessor :certPath
+
+   def initialize(certPath = false)
+      unless certPath
+         @certPath = certPath
+      end
+      puts 'made it from APNS' + "\n\n#{certPath}"
    end
 
 end
