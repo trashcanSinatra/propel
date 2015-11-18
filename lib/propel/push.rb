@@ -1,6 +1,6 @@
 class Push
 
-   @@types = { 'google' => 'GCM', 'apple' => 'APNS' }
+   @@types = {'google' => 'GCM', 'apple' => 'APNS'}
 
    def self.OpenStream(type, *args)
       return false unless @@types.has_key?(type)
