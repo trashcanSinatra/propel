@@ -3,6 +3,7 @@ class APNS < Push
    attr_accessor :certPath
    @tokens = []
    @messages = []
+
    
    def initialize(certPath = false)
       if certPath
