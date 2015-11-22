@@ -39,6 +39,33 @@ class Push
    end
 
 
+   def queue_messages(msgs)
+      unless valid_arg?(msgs)
+         puts "You must provide at least one message"
+         return false
+      else
+         msgs = [msgs] if msgs.is_a? String
+         msgs.map {|msg| add('msg', msg)}
+      end
+   end
+
+   def unqueue(items)
+      unless valid_arg?(items)
+         puts "Please provide a valid item to unqueue"
+      else
+         items = [items] if items.is_a? String
+         items.map do |item|
+            if self.class.tokens.include?(item)
+               self.class.tokens.delete(item)
+            elsif self.class.messages.include?(item)
+               self.class.messages.delete(item)
+            else
+               puts "\"#{item}\" is not in either queue."
+            end # IF
+         end # DO
+      end # UNLESS
+   end # UNQUEUE
+
    def valid_arg?(arg)
       return false if !arg
       return false if arg == ""
@@ -68,7 +95,10 @@ class Push
 
 
    def to_s()
-      puts self.class.tokens
+      puts "Queued Tokens: \n"
+      puts "\t" + self.class.tokens.to_s
+      puts "Queud Messages: \n"
+      puts "\t" + self.class.messages.to_s
    end
 
 end  # Class Push
