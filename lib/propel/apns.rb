@@ -1,15 +1,16 @@
+require 'http'
+
 class APNS < Push
 
-   attr_accessor :certPath
    @tokens = []
    @messages = []
+   attr_accessor :certPath
 
-   
+
    def initialize(certPath = false)
-      if certPath
-         @certPath = certPath
-      end
-      puts 'made it from APNS' + "\n\n#{certPath}"
+      super("")
+      @certPath = certPath || File.dirname(__FILE__)
    end
+
 
 end
