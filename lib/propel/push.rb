@@ -49,10 +49,8 @@ class Push
 
    def duplicate?(tokens)
       dup = []
-      for token in tokens do
-         if self.class.tokens.include?(token)
-            dup << token
-         end
+      tokens.map do |tkn|
+      dup << tkn if self.class.tokens.include?(tkn)
       end
       if dup.any?; return dup; else false; end
    end
