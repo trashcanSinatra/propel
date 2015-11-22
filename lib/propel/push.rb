@@ -54,7 +54,7 @@ class Push
             dup << token
          end
       end
-      return dup if dup.any? else false
+      if dup.any?; return dup; else false; end
    end
 
 
