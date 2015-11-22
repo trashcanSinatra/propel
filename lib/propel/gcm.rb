@@ -2,6 +2,7 @@ class GCM < Push
 
    @tokens = []
    @messages = []
+
    
    attr_accessor :appKey
 
