@@ -1,7 +1,6 @@
 class Push
 
-   @@types = {'google' => 'GCM', 'apple' => 'APNS'}
-
+   attr_accessor :serverURL
 
    class << self
 
@@ -23,6 +22,13 @@ class Push
 
    end # Class Self
 
+
+   # TO DO: Add initialize function that sets a global boolean for peristing data.
+   # This can be used later to optionally interact with a db connection
+
+   def initialize(url="")
+      @serverURL = url
+   end
 
    def queue_tokens(tokens)
       unless valid_arg?(tokens)
@@ -49,6 +55,7 @@ class Push
       end
    end
 
+
    def unqueue(items)
       unless valid_arg?(items)
          puts "Please provide a valid item to unqueue"
@@ -66,6 +73,18 @@ class Push
       end # UNLESS
    end # UNQUEUE
 
+
+   def add(type, item)
+         if type == 'tkn'
+            self.class.tokens << item
+         elsif type == 'msg'
+            self.class.messages << item
+         else
+            puts "You must provide a type: tkn or msg \n\n"
+         end # IF
+   end # ADD
+
+
    def valid_arg?(arg)
       return false if !arg
       return false if arg == ""
@@ -80,17 +99,6 @@ class Push
       dup << tkn if self.class.tokens.include?(tkn)
       end
       if dup.any?; return dup; else false; end
-   end
-
-
-   def add(type, item)
-      if type == 'tkn'
-         self.class.tokens << item
-      elsif type == 'msg'
-         self.class.messages << item
-      else
-         puts "You must provide a type: tkn or msg \n\n"
-      end
    end
 
 
