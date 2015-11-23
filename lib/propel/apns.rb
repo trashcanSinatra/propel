@@ -1,4 +1,4 @@
-require 'http'
+module Propel
 
 class APNS < Push
 
@@ -12,5 +12,7 @@ class APNS < Push
       @certPath = certPath || File.dirname(__FILE__)
    end
 
+
+end
 
 end

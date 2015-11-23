@@ -1,3 +1,5 @@
+module Propel
+
 class Push
 
    attr_accessor :serverURL
@@ -110,3 +112,5 @@ class Push
    end
 
 end  # Class Push
+
+end

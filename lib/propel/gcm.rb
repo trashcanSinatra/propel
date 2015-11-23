@@ -1,4 +1,4 @@
-require 'http'
+module Propel
 
 class GCM < Push
 
@@ -43,6 +43,6 @@ class GCM < Push
 
    end
 
-
+end
 
 end
